@@ -35,8 +35,8 @@ def collatz(number):
 if __name__ == "__main__":
     try:
         inp = int(input('Enter number:\n'))
+        while inp != 1:
+            inp = collatz(inp)
     except (NameError,SyntaxError,ValueError) as exp:
         print("Kindly try again with Integer")
         sys.exit()
-    while inp != 1:
-        inp = collatz(inp)
