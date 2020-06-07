@@ -21,6 +21,7 @@ Enter number:
 1
  '''
 #solution
+import sys
 def collatz(number):
     if number%2 == 0:
         out = number // 2
@@ -31,8 +32,11 @@ def collatz(number):
         print(out)
         return out
 
-inp = int(input('Enter number:\n'))
-while inp!=1:
-    inp = collatz(inp)
-
-
+if __name__ == "__main__":
+    try:
+        inp = int(input('Enter number:\n'))
+    except (NameError,SyntaxError,ValueError) as exp:
+        print("Kindly try again with Integer")
+        sys.exit()
+    while inp != 1:
+        inp = collatz(inp)
